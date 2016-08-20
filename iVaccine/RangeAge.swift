@@ -9,7 +9,7 @@
 import CoreData
 import Foundation
 
-class RangeAge: NSManagedObject {
+class RangeAge: NSManagedObject, Comparable {
   class func newRangeAge(managedObjectContext: NSManagedObjectContext) -> RangeAge {
     return NSEntityDescription.insertNewObjectForEntityForName("RangeAge", inManagedObjectContext: managedObjectContext) as! RangeAge
   }
@@ -44,4 +44,20 @@ class RangeAge: NSManagedObject {
 
     return nil
   }
+}
+
+func ==(x: RangeAge, y: RangeAge) -> Bool {
+  if x.ageInit == y.ageInit && x.ageFinal == y.ageFinal {
+    return true
+  }
+
+  return false
+}
+
+func <(x: RangeAge, y: RangeAge) -> Bool {
+  if x.ageInit > y.ageFinal {
+    return true
+  }
+
+  return false
 }
