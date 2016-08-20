@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2078EBEA1D68962400BA45AB /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBE91D68962400BA45AB /* RegisterTableViewController.swift */; };
+		2078EBEB1D68962400BA45AB /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBE91D68962400BA45AB /* RegisterTableViewController.swift */; };
+		2078EBEC1D68962400BA45AB /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBE91D68962400BA45AB /* RegisterTableViewController.swift */; };
 		2092ED321D68811000A04DD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2092ED311D68811000A04DD9 /* AppDelegate.swift */; };
 		2092ED341D68811000A04DD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2092ED331D68811000A04DD9 /* ViewController.swift */; };
 		2092ED371D68811000A04DD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2092ED351D68811000A04DD9 /* Main.storyboard */; };
@@ -35,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2078EBE91D68962400BA45AB /* RegisterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
 		2092ED2E1D68811000A04DD9 /* iVaccine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVaccine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2092ED311D68811000A04DD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2092ED331D68811000A04DD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				2092ED311D68811000A04DD9 /* AppDelegate.swift */,
 				2092ED331D68811000A04DD9 /* ViewController.swift */,
 				2092ED351D68811000A04DD9 /* Main.storyboard */,
+				2078EBE91D68962400BA45AB /* RegisterTableViewController.swift */,
 				2092ED3B1D68811000A04DD9 /* Assets.xcassets */,
 				2092ED3D1D68811000A04DD9 /* LaunchScreen.storyboard */,
 				2092ED401D68811000A04DD9 /* Info.plist */,
@@ -196,6 +201,7 @@
 				TargetAttributes = {
 					2092ED2D1D68811000A04DD9 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 979Q9P7M9M;
 					};
 					2092ED441D68811000A04DD9 = {
 						CreatedOnToolsVersion = 7.3;
@@ -262,6 +268,7 @@
 				2092ED3A1D68811000A04DD9 /* iVaccine.xcdatamodeld in Sources */,
 				2092ED341D68811000A04DD9 /* ViewController.swift in Sources */,
 				2092ED321D68811000A04DD9 /* AppDelegate.swift in Sources */,
+				2078EBEA1D68962400BA45AB /* RegisterTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2092ED4A1D68811000A04DD9 /* iVaccineTests.swift in Sources */,
+				2078EBEB1D68962400BA45AB /* RegisterTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2092ED551D68811000A04DD9 /* iVaccineUITests.swift in Sources */,
+				2078EBEC1D68962400BA45AB /* RegisterTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,10 +414,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iVaccine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackathon.ac.iVaccine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -416,10 +428,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iVaccine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackathon.ac.iVaccine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -488,6 +503,7 @@
 				2092ED5B1D68811000A04DD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2092ED5C1D68811000A04DD9 /* Build configuration list for PBXNativeTarget "iVaccineTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +512,7 @@
 				2092ED5E1D68811000A04DD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2092ED5F1D68811000A04DD9 /* Build configuration list for PBXNativeTarget "iVaccineUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +521,7 @@
 				2092ED611D68811000A04DD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
