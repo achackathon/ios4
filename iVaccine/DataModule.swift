@@ -34,7 +34,7 @@ final class DataModule {
 
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
       if let json = self.loadJsonFrom(resource: "Vaccine", ofType: "json") {
-        guard let vaccines = json[""] as? [[String: NSObject]] else { return }
+        guard let vaccines = json["vaccines"] as? [[String: NSObject]] else { return }
 
         for vaccineJson in vaccines {
           guard let name = vaccineJson["name"] as? String else { continue }
@@ -127,9 +127,9 @@ extension DataModule {
     return [Profile]()
   }
 
-  func getVaccine(name: String?) -> [RangeAge] {
+  func getVaccine(name: String?) -> [Vaccine] {
     // Initialize Fetch Request
-    let entity = NSEntityDescription.entityForName("RangeAge", inManagedObjectContext: managedObjectContext)
+    let entity = NSEntityDescription.entityForName("Vaccine", inManagedObjectContext: managedObjectContext)
     let fetchRequest = NSFetchRequest()
     fetchRequest.entity = entity
 
@@ -141,12 +141,12 @@ extension DataModule {
     }
 
     do {
-      return try managedObjectContext.executeFetchRequest(fetchRequest) as! [RangeAge]
+      return try managedObjectContext.executeFetchRequest(fetchRequest) as! [Vaccine]
     } catch {
       print((error as NSError).localizedDescription)
     }
 
-    return [RangeAge]()
+    return [Vaccine]()
   }
 
   func getVaccineRecord(profile: Profile, vaccineted: Bool?) -> [VaccineRecord] {

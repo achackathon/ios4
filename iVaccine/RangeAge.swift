@@ -21,7 +21,7 @@ class RangeAge: NSManagedObject {
     fetchRequest.entity = entity
 
     // Add filter
-    let predicate = NSPredicate(format: "init = %@ AND final = %@", String(ageInit), String(ageFinal))
+    let predicate = NSPredicate(format: "ageInit = %@ AND ageFinal = %@", String(ageInit), String(ageFinal))
     fetchRequest.predicate = predicate
 
     do {
