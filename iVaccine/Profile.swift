@@ -24,4 +24,25 @@ class Profile: NSManagedObject {
     let items = self.mutableSetValueForKey("vaccineRecords");
     items.removeObject(value)
   }
+
+  func loadVaccines() {
+    let vaccines = DataModule.sharedInstance.getVaccine(nil)
+
+    for vaccine in vaccines {
+      let vaccineRecord = VaccineRecord.newVaccineRecord(self.managedObjectContext!)
+      vaccineRecord.profile = self
+      vaccineRecord.vaccineted = false
+      vaccineRecord.addVaccineObject(vaccine)
+
+      vaccineRecord.save()
+    }
+  }
+
+  func save() {
+    do {
+      try self.managedObjectContext?.save()
+    } catch {
+      print("Não foi possível salvar a vacina \(self.name).")
+    }
+  }
 }

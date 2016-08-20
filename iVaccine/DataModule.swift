@@ -93,8 +93,13 @@ extension DataModule {
     let fetchRequest = NSFetchRequest()
     fetchRequest.entity = entity
 
+    // Add Sort Descriptors
+    let initSortDescriptor = NSSortDescriptor(key: "ageInit", ascending: true)
+    let finalSortDescriptor = NSSortDescriptor(key: "ageFinal", ascending: true)
+    fetchRequest.sortDescriptors = [initSortDescriptor, finalSortDescriptor]
+
     // Add filter
-    let predicate = NSPredicate(format: "init = %@ AND final = %@", String(initInMonths), String(finalInMonths))
+    let predicate = NSPredicate(format: "ageInit = %@ AND ageFinal = %@", String(initInMonths), String(finalInMonths))
     fetchRequest.predicate = predicate
 
     do {
@@ -140,6 +145,8 @@ extension DataModule {
       fetchRequest.predicate = predicate
     }
 
+
+
     do {
       return try managedObjectContext.executeFetchRequest(fetchRequest) as! [Vaccine]
     } catch {
@@ -171,5 +178,56 @@ extension DataModule {
     }
 
     return [VaccineRecord]()
+  }
+
+  func getVaccinePerAgeRange(profile: Profile) -> [VaccinesPerAgeRange] {
+    var vaccinesPerAgeRanges = [VaccinesPerAgeRange]()
+    let ranges = getRanges()
+    let vaccineRecords = getVaccineRecord(profile, vaccineted: nil)
+
+    for range in ranges {
+      var vaccinesPerAgeRange = VaccinesPerAgeRange(description: getRangeDescription(range), vaccines: [Vaccine]())
+
+      for vaccineRecord in vaccineRecords {
+        if let vaccine = vaccineRecord.vaccine {
+          if let ranges = vaccine.rangeAge {
+            for vaccineRange in ranges {
+              if vaccineRange as! RangeAge == range {
+                vaccinesPerAgeRange.vaccines.append(vaccine)
+              }
+            }
+          }
+        }
+      }
+
+      vaccinesPerAgeRanges.append(vaccinesPerAgeRange)
+    }
+
+    return vaccinesPerAgeRanges
+  }
+
+  private func getRangeDescription(rangeAge: RangeAge) -> String {
+    switch (rangeAge.ageInit, rangeAge.ageFinal) {
+    case (0, 0): return "Ao nascer"
+    case (2, 2): return "2 meses"
+    case (3, 3): return "3 meses"
+    case (4, 4): return "4 meses"
+    case (5, 5): return "5 meses"
+    case (6, 6): return "6 meses"
+    case (9, 9): return "7 meses"
+    case (12, 12): return "12 meses"
+    case (15, 15): return "15 meses"
+    case (48, 48): return "4 anos"
+    case (108, 108): return "9 anos"
+    case (120, 228): return "10 a 19 anos"
+    case (240, 708): return "20 a 59 anos"
+    case (720, 11988): return "60 anos ou mais"
+    default: return "Outros"
+    }
+  }
+
+  struct VaccinesPerAgeRange {
+    var description: String
+    var vaccines: [Vaccine]
   }
 }

@@ -24,4 +24,12 @@ class VaccineRecord: NSManagedObject {
     let items = self.mutableSetValueForKey("vaccine");
     items.removeObject(value)
   }
+
+  func save() {
+    do {
+      try self.managedObjectContext?.save()
+    } catch {
+      print("Não foi possível salvar o registro de vacina para a vacina \(vaccine!.name) no profile do \(self.profile!.name).")
+    }
+  }
 }
