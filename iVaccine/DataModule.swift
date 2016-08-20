@@ -188,6 +188,10 @@ extension DataModule {
     let vaccineRecords = getVaccineRecord(profile, vaccineted: nil)
 
     for range in ranges {
+      if existRange(vaccinesPerAgeRanges, range: getRangeDescription(range)) {
+        continue
+      }
+
       var vaccinesPerAgeRange = VaccinesPerAgeRange(description: getRangeDescription(range), vaccines: [Vaccine]())
 
       for vaccineRecord in vaccineRecords {
@@ -195,6 +199,10 @@ extension DataModule {
           if let ranges = vaccine.rangeAge {
             for vaccineRange in ranges {
               if vaccineRange as! RangeAge == range {
+                if let _ = vaccinesPerAgeRange.vaccines.indexOf(vaccine) {
+                  continue
+                }
+                print("range: \(getRangeDescription(range)). vaccine: \(vaccine.name)")
                 vaccinesPerAgeRange.adVaccine(vaccine)
               }
             }
@@ -203,9 +211,20 @@ extension DataModule {
       }
 
       vaccinesPerAgeRanges.append(vaccinesPerAgeRange)
+      print("")
     }
 
     return vaccinesPerAgeRanges
+  }
+
+  func existRange(vaccinesPerAgeRanges: [VaccinesPerAgeRange], range: String) -> Bool {
+    for x in vaccinesPerAgeRanges {
+      if x.description == range {
+        return true
+      }
+    }
+
+    return false
   }
 
   private func getRangeDescription(rangeAge: RangeAge) -> String {
