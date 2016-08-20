@@ -1,0 +1,225 @@
+{
+	"vaccines": [
+		{
+			"name": "BCG",
+			"ranges": [
+				{
+					"init": 0,
+					"final": 0
+				}
+			]
+		},
+		{
+			"name": "Hepatite B",
+			"ranges": [
+				{
+					"init": 0,
+					"final": 0
+				},
+				{
+					"init": 120,
+					"final": 228
+				},
+				{
+					"init": 240,
+					"final": 708
+				},
+				{
+					"init": 720,
+					"final": 11988
+				}
+			]
+		},
+		{
+			"name": "Penta",
+			"ranges": [
+				{
+					"init": 2,
+					"final": 2
+				},
+				{
+					"init": 4,
+					"final": 4
+				},
+				{
+					"init": 6,
+					"final": 6
+				},
+				{
+					"init": 15,
+					"final": 15
+				},
+				{
+					"init": 48,
+					"final": 48
+				}
+			]
+		},
+		{
+			"name": "VIP/VOP ",
+			"ranges": [
+				{
+					"init": 2,
+					"final": 2
+				},
+				{
+					"init": 4,
+					"final": 4
+				},
+				{
+					"init": 6,
+					"final": 6
+				},
+				{
+					"init": 15,
+					"final": 15
+				},
+				{
+					"init": 48,
+					"final": 48
+				}
+			]
+		},
+		{
+			"name": "Pneumocócica 10V",
+			"ranges": [
+				{
+					"init": 2,
+					"final": 2
+				},
+				{
+					"init": 4,
+					"final": 4
+				},
+				{
+					"init": 6,
+					"final": 6
+				},
+				{
+					"init": 12,
+					"final": 12
+				}
+			]
+		},
+		{
+			"name": "Rotavírus Humano",
+			"ranges": [
+				{
+					"init": 2,
+					"final": 2
+				},
+				{
+					"init": 4,
+					"final": 4
+				}
+			]
+		},
+		{
+			"name": "Meningocócica C",
+			"ranges": [
+				{
+					"init": 3,
+					"final": 3
+				},
+				{
+					"init": 5,
+					"final": 5
+				},
+				{
+					"init": 15,
+					"final": 15
+				}
+			]
+		},
+		{
+			"name": "Febre Amarela",
+			"ranges": [
+				{
+					"init": 9,
+					"final": 9
+				},
+				{
+					"init": 48,
+					"final": 48
+				},
+				{
+					"init": 120,
+					"final": 228
+				},
+				{
+					"init": 240,
+					"final": 708
+				},
+				{
+					"init": 720,
+					"final": 11988
+				}
+			]
+		},
+		{
+			"name": "Hepatite A",
+			"ranges": [
+				{
+					"init": 12,
+					"final": 12
+				}
+			]
+		},
+		{
+			"name": "Tríplice Viral",
+			"range": [
+				{
+					"init": 12,
+					"final": 12
+				},
+				{
+					"init": 120,
+					"final": 228
+				},
+				{
+					"init": 240,
+					"final": 708
+				}
+			]
+		},
+		{
+			"name": "Tetra Viral",
+			"range": [
+				{
+					"init": 15,
+					"final": 15
+				}
+			]
+		},
+		{
+			"name": "HPV",
+			"range": [
+				{
+					"init": 108,
+					"final": 108
+				},
+				{
+					"init": 120,
+					"final": 228
+				}
+			]
+		},
+		{
+			"name": "Dupla Adulto",
+			"range": [
+				{
+					"init": 120,
+					"final": 228
+				},
+				{
+					"init": 240,
+					"final": 708
+				},
+				{
+					"init": 720,
+					"final": 11988
+				}
+			]
+		}
+	]
+}

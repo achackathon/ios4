@@ -24,6 +24,16 @@
 		2092ED3F1D68811000A04DD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2092ED3D1D68811000A04DD9 /* LaunchScreen.storyboard */; };
 		2092ED4A1D68811000A04DD9 /* iVaccineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2092ED491D68811000A04DD9 /* iVaccineTests.swift */; };
 		2092ED551D68811000A04DD9 /* iVaccineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2092ED541D68811000A04DD9 /* iVaccineUITests.swift */; };
+		CB5666051D6895C4005A5FE2 /* DataModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5666041D6895C4005A5FE2 /* DataModule.swift */; };
+		CB56660E1D68963B005A5FE2 /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5666061D68963B005A5FE2 /* Profile+CoreDataProperties.swift */; };
+		CB56660F1D68963B005A5FE2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5666071D68963B005A5FE2 /* Profile.swift */; };
+		CB5666101D68963B005A5FE2 /* Vaccine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5666081D68963B005A5FE2 /* Vaccine+CoreDataProperties.swift */; };
+		CB5666111D68963B005A5FE2 /* Vaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5666091D68963B005A5FE2 /* Vaccine.swift */; };
+		CB5666121D68963B005A5FE2 /* RangeAge+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56660A1D68963B005A5FE2 /* RangeAge+CoreDataProperties.swift */; };
+		CB5666131D68963B005A5FE2 /* RangeAge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56660B1D68963B005A5FE2 /* RangeAge.swift */; };
+		CB5666141D68963B005A5FE2 /* VaccineRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56660C1D68963B005A5FE2 /* VaccineRecord+CoreDataProperties.swift */; };
+		CB5666151D68963B005A5FE2 /* VaccineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56660D1D68963B005A5FE2 /* VaccineRecord.swift */; };
+		CB56661C1D689AAD005A5FE2 /* Vaccine.json in Resources */ = {isa = PBXBuildFile; fileRef = CB56661B1D689AAD005A5FE2 /* Vaccine.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +71,16 @@
 		2092ED501D68811000A04DD9 /* iVaccineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iVaccineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2092ED541D68811000A04DD9 /* iVaccineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iVaccineUITests.swift; sourceTree = "<group>"; };
 		2092ED561D68811000A04DD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB5666041D6895C4005A5FE2 /* DataModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModule.swift; sourceTree = "<group>"; };
+		CB5666061D68963B005A5FE2 /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CB5666071D68963B005A5FE2 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		CB5666081D68963B005A5FE2 /* Vaccine+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vaccine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CB5666091D68963B005A5FE2 /* Vaccine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vaccine.swift; sourceTree = "<group>"; };
+		CB56660A1D68963B005A5FE2 /* RangeAge+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RangeAge+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CB56660B1D68963B005A5FE2 /* RangeAge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeAge.swift; sourceTree = "<group>"; };
+		CB56660C1D68963B005A5FE2 /* VaccineRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VaccineRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CB56660D1D68963B005A5FE2 /* VaccineRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccineRecord.swift; sourceTree = "<group>"; };
+		CB56661B1D689AAD005A5FE2 /* Vaccine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Vaccine.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +131,9 @@
 		2092ED301D68811000A04DD9 /* iVaccine */ = {
 			isa = PBXGroup;
 			children = (
+				CB5666181D689875005A5FE2 /* Data */,
+				CB5666171D68964F005A5FE2 /* Model */,
+				CB5666161D689647005A5FE2 /* Core Data */,
 				2092ED311D68811000A04DD9 /* AppDelegate.swift */,
 				2092ED331D68811000A04DD9 /* ViewController.swift */,
 				2092ED351D68811000A04DD9 /* Main.storyboard */,
@@ -120,7 +143,6 @@
 				2092ED3B1D68811000A04DD9 /* Assets.xcassets */,
 				2092ED3D1D68811000A04DD9 /* LaunchScreen.storyboard */,
 				2092ED401D68811000A04DD9 /* Info.plist */,
-				2092ED381D68811000A04DD9 /* iVaccine.xcdatamodeld */,
 			);
 			path = iVaccine;
 			sourceTree = "<group>";
@@ -141,6 +163,38 @@
 				2092ED561D68811000A04DD9 /* Info.plist */,
 			);
 			path = iVaccineUITests;
+			sourceTree = "<group>";
+		};
+		CB5666161D689647005A5FE2 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				CB5666061D68963B005A5FE2 /* Profile+CoreDataProperties.swift */,
+				CB5666081D68963B005A5FE2 /* Vaccine+CoreDataProperties.swift */,
+				CB56660A1D68963B005A5FE2 /* RangeAge+CoreDataProperties.swift */,
+				CB56660C1D68963B005A5FE2 /* VaccineRecord+CoreDataProperties.swift */,
+				2092ED381D68811000A04DD9 /* iVaccine.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		CB5666171D68964F005A5FE2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB5666071D68963B005A5FE2 /* Profile.swift */,
+				CB5666091D68963B005A5FE2 /* Vaccine.swift */,
+				CB56660B1D68963B005A5FE2 /* RangeAge.swift */,
+				CB56660D1D68963B005A5FE2 /* VaccineRecord.swift */,
+				CB5666041D6895C4005A5FE2 /* DataModule.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CB5666181D689875005A5FE2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CB56661B1D689AAD005A5FE2 /* Vaccine.json */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2092ED3F1D68811000A04DD9 /* LaunchScreen.storyboard in Resources */,
+				CB56661C1D689AAD005A5FE2 /* Vaccine.json in Resources */,
 				2092ED3C1D68811000A04DD9 /* Assets.xcassets in Resources */,
 				2092ED371D68811000A04DD9 /* Main.storyboard in Resources */,
 			);
@@ -275,12 +330,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB5666121D68963B005A5FE2 /* RangeAge+CoreDataProperties.swift in Sources */,
 				2092ED3A1D68811000A04DD9 /* iVaccine.xcdatamodeld in Sources */,
 				2078EBEE1D68ACC500BA45AB /* ProfilesTableViewController.swift in Sources */,
-				2092ED341D68811000A04DD9 /* ViewController.swift in Sources */,
 				2078EBF21D68B32900BA45AB /* ScheduleViewController.swift in Sources */,
-				2092ED321D68811000A04DD9 /* AppDelegate.swift in Sources */,
 				2078EBEA1D68962400BA45AB /* RegisterTableViewController.swift in Sources */,
+				CB5666151D68963B005A5FE2 /* VaccineRecord.swift in Sources */,
+				CB5666111D68963B005A5FE2 /* Vaccine.swift in Sources */,
+				CB5666131D68963B005A5FE2 /* RangeAge.swift in Sources */,
+				CB56660F1D68963B005A5FE2 /* Profile.swift in Sources */,
+				2092ED341D68811000A04DD9 /* ViewController.swift in Sources */,
+				CB56660E1D68963B005A5FE2 /* Profile+CoreDataProperties.swift in Sources */,
+				2092ED321D68811000A04DD9 /* AppDelegate.swift in Sources */,
+				CB5666101D68963B005A5FE2 /* Vaccine+CoreDataProperties.swift in Sources */,
+				CB5666051D6895C4005A5FE2 /* DataModule.swift in Sources */,
+				CB5666141D68963B005A5FE2 /* VaccineRecord+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,15 +24,10 @@ class Profile : NSObject {
 
 class ProfilesTableViewController : UITableViewController {
     
-    
-  
-
-    
     let listOfProfiles : [Profile] = []
         
     override func viewDidLoad() {
         self.navigationItem.setHidesBackButton(true, animated:true)
-        let profile = Profile().initWith("Nome 1", age: "20")
         
     }
     @IBAction func create(sender: UIBarButtonItem) {
@@ -73,21 +68,29 @@ class ProfilesTableViewController : UITableViewController {
 //    override func table
 //    
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Destructive, title: "👋" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Destructive, title: "✂️" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             
             print("Delete")
         })
         
        
-
+//        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(45)] as Dictionary!
+//        UIButton.appearance().setAttributedTitle(NSAttributedString(string: "   ✏️   ", attributes: attributes), forState: .Normal)
         
-        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "☝️" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "✏️" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             
             print("Edit")
         })
         
-        deleteAction.backgroundColor = UIColor.whiteColor()
+        deleteAction.backgroundColor = UIColor.redColor()//UIColor.whiteColor()
         editAction.backgroundColor = UIColor.whiteColor()
+        
+       
+        
+        //deleteAction.title.
+
+        
+       // deleteAction.back
         //NSDictionary *systemAttributes = @{ NSFontAttributeName: [UIFont systemFontOfSize:18] };
 
        // self.titleLabel?.font = .systemFontOfSize(45)
