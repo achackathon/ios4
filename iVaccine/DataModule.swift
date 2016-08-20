@@ -101,8 +101,8 @@ extension DataModule {
     fetchRequest.sortDescriptors = [initSortDescriptor, finalSortDescriptor]
 
     // Add filter
-    let predicate = NSPredicate(format: "ageInit = %@ AND ageFinal = %@", String(initInMonths), String(finalInMonths))
-    fetchRequest.predicate = predicate
+//    let predicate = NSPredicate(format: "ageInit >= %@ AND ageFinal <= %@", String(initInMonths), String(finalInMonths))
+//    fetchRequest.predicate = predicate
 
     do {
       return try managedObjectContext.executeFetchRequest(fetchRequest) as! [RangeAge]
@@ -228,8 +228,9 @@ extension DataModule {
     }
   }
 
-  struct VaccinesPerAgeRange {
+}
+
+struct VaccinesPerAgeRange {
     var description: String
     var vaccines: [Vaccine]
-  }
 }

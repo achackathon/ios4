@@ -65,9 +65,15 @@ class RegisterTableViewController : UITableViewController {
     
     @IBAction func selectSex(sender: SexButton) {
         
-        male.backgroundColor = UIColor.grayColor()
-        female.backgroundColor = UIColor.grayColor()
-        notDefined.backgroundColor = UIColor.grayColor()
+        let color = UIColor(red: 0.9, green: 0.9, blue: 1.0, alpha: 1.0)
+        
+        let strongColor = UIColor(red: 0.5, green: 0.7, blue: 0.9, alpha: 1.0)
+        
+   
+
+        male.backgroundColor = color
+        female.backgroundColor = color
+        notDefined.backgroundColor = color
 
         //not good at all
         switch (sender.titleLabel!.text)! {
@@ -76,7 +82,7 @@ class RegisterTableViewController : UITableViewController {
             default: sex = .NotDefined
         }
         
-        sender.backgroundColor = UIColor.redColor()
+        sender.backgroundColor = strongColor
         
     }
     
@@ -91,14 +97,20 @@ class RegisterTableViewController : UITableViewController {
         newProfile.sex = sex.rawValue
         
         
+        newProfile.save()
+        
+        newProfile.loadVaccines()
+        
+        
         //set profile
-        performSegueWithIdentifier("SegueSchedule", sender: nil)
+        performSegueWithIdentifier("SegueSchedule", sender: newProfile)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SegueSchedule" {
             
-            
+            let scheduleViewController = segue.destinationViewController as! ScheduleViewController
+            scheduleViewController.profile = sender as! Profile
             
         }
     }
@@ -121,7 +133,12 @@ public class SexButton: UIButton {
     }
     public func sharedInitialization(){
         layer.cornerRadius = frame.width/2
-        backgroundColor = UIColor.grayColor()
+        
+        let color = UIColor(red: 0.9, green: 0.9, blue: 1.0, alpha: 1.0)
+        
+        backgroundColor = color
+
+        
         self.titleLabel?.font = .systemFontOfSize(45)
         //setTitle("💩", forState: .Normal)
     }

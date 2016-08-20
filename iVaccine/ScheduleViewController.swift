@@ -11,9 +11,15 @@ import UIKit
 
 class ScheduleViewController : UITableViewController {
     
+    var profile : Profile!
+        
+    var list  = [VaccinesPerAgeRange]()
     
     override func viewDidLoad() {
         self.navigationItem.setHidesBackButton(true, animated:true)
+        list = DataModule.sharedInstance.getVaccinePerAgeRange(profile)
+        tableView.reloadData()
+        
     }
     
     @IBAction func showProfiles(sender: UIBarButtonItem) {
@@ -22,27 +28,31 @@ class ScheduleViewController : UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        return 2
+        return 5//list.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+       // let vaccinePerAgeRange = list[section]
         
-        return 4
+        return 5//vaccinePerAgeRange.vaccines.count
         
     }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return 50
     }
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let viewHeader = UIView.init(frame: CGRectMake(0, 0, view.frame.width, 60))
+        let viewHeader = UIView.init(frame: CGRectMake(0, 0, view.frame.width, 50))
         
-         let titleHeader = UILabel.init(frame: CGRectMake(view.frame.width/2 - 100, 5, 200, viewHeader.frame.height-5))
+         let titleHeader = UILabel.init(frame: CGRectMake(view.frame.width/2 - 100, 0, 200, viewHeader.frame.height))
         titleHeader.textAlignment = .Center
-        titleHeader.font = .systemFontOfSize(30)
+        titleHeader.font = .systemFontOfSize(25)
+        titleHeader.textColor = UIColor.whiteColor()
 
-         titleHeader.text = "123 meses"
-        titleHeader.backgroundColor = UIColor.yellowColor()
-        viewHeader.backgroundColor = UIColor.redColor()
+        //let vaccinePerAgeRange = list[section]
+
+        titleHeader.text = "1 a 2 anos"//vaccinePerAgeRange.description
+        titleHeader.backgroundColor = UIColor.clearColor()
+        viewHeader.backgroundColor = UIColor.grayColor()
         
         viewHeader.addSubview(titleHeader)
         
@@ -52,8 +62,20 @@ class ScheduleViewController : UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell : VaccineTableViewCell = tableView.dequeueReusableCellWithIdentifier("VaccineTableViewCell") as! VaccineTableViewCell
+        cell.selectedIcon.alpha = 0.5
+        cell.selectionStyle = .None
         
         return cell
+        
+    }
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        print("Selected")
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! VaccineTableViewCell
+        cell.showSelected()
+        
         
     }
 
@@ -65,5 +87,36 @@ class ScheduleViewController : UITableViewController {
 
 
 class VaccineTableViewCell : UITableViewCell {
+    @IBOutlet weak var descriptionVaccine: UILabel!
+    @IBOutlet weak var selectedIcon: UILabel!
+    
+    @IBAction func showDetails(sender: UIButton) {
+        
+        
+    }
+    
+    func showSelected(){
+        print("anima")
+        if selectedIcon.alpha < 1 {
+            UIView.animateWithDuration(0.5, animations: {
+                self.selectedIcon.alpha = 1.0
+            })
+        }else {
+            UIView.animateWithDuration(0.5, animations: {
+                self.selectedIcon.alpha = 0.5
+            })
+            
+        }
+        
+        
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+       // super.setSelected(selected, animated: animated)
+        
+//        UIView.animateWithDuration(0.5, animations: {
+//           self.selectedIcon.alpha = 1.0
+//        })
+    }
     
 }
