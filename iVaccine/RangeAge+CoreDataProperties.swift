@@ -9,13 +9,11 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 extension RangeAge {
-
-    @NSManaged var ageFinal: NSNumber?
-    @NSManaged var ageInit: NSNumber?
-    @NSManaged var vaccines: Vaccine?
-
+  @NSManaged var ageFinal: Int
+  @NSManaged var ageInit: Int
+  @NSManaged var vaccines: NSSet?
 }

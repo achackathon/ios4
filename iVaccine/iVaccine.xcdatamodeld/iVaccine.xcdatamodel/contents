@@ -3,22 +3,22 @@
     <entity name="Profile" representedClassName=".Profile" syncable="YES">
         <attribute name="birthdate" attributeType="Date" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="sex" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="sex" attributeType="String" syncable="YES"/>
         <relationship name="vaccineRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VaccineRecord" inverseName="profile" inverseEntity="VaccineRecord" syncable="YES"/>
     </entity>
     <entity name="RangeAge" representedClassName=".RangeAge" syncable="YES">
-        <attribute name="ageFinal" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="ageInit" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="vaccines" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vaccine" inverseName="rangeAge" inverseEntity="Vaccine" syncable="YES"/>
+        <attribute name="ageFinal" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="ageInit" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="vaccines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vaccine" inverseName="rangeAge" inverseEntity="Vaccine" syncable="YES"/>
     </entity>
     <entity name="Vaccine" representedClassName=".Vaccine" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="vaccineDescription" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="rangeAge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RangeAge" inverseName="vaccines" inverseEntity="RangeAge" syncable="YES"/>
+        <relationship name="rangeAge" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RangeAge" inverseName="vaccines" inverseEntity="RangeAge" syncable="YES"/>
         <relationship name="vaccineRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VaccineRecord" inverseName="vaccine" inverseEntity="VaccineRecord" syncable="YES"/>
     </entity>
     <entity name="VaccineRecord" representedClassName=".VaccineRecord" syncable="YES">
-        <attribute name="vaccineted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="vaccineted" attributeType="Boolean" syncable="YES"/>
         <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="vaccineRecords" inverseEntity="Profile" syncable="YES"/>
         <relationship name="vaccine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vaccine" inverseName="vaccineRecords" inverseEntity="Vaccine" syncable="YES"/>
     </entity>

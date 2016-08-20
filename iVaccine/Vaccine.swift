@@ -6,12 +6,21 @@
 //  Copyright © 2016 Gio. All rights reserved.
 //
 
-import Foundation
 import CoreData
-
+import Foundation
 
 class Vaccine: NSManagedObject {
+  class func newVaccine(managedObjectContext: NSManagedObjectContext) -> Vaccine {
+    return NSEntityDescription.insertNewObjectForEntityForName("Vaccine", inManagedObjectContext: managedObjectContext) as! Vaccine
+  }
 
-// Insert code here to add functionality to your managed object subclass
+  func addRangeObject(value: RangeAge) {
+    let items = self.mutableSetValueForKey("rangeAge");
+    items.addObject(value)
+  }
 
+  func removeRangeObject(value: RangeAge) {
+    let items = self.mutableSetValueForKey("rangeAge");
+    items.removeObject(value)
+  }
 }

@@ -9,13 +9,11 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 extension VaccineRecord {
-
-    @NSManaged var vaccineted: NSNumber?
-    @NSManaged var profile: Profile?
-    @NSManaged var vaccine: Vaccine?
-
+  @NSManaged var vaccineted: Bool
+  @NSManaged var profile: Profile?
+  @NSManaged var vaccine: Vaccine?
 }
