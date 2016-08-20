@@ -10,6 +10,12 @@
 		2078EBEA1D68962400BA45AB /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBE91D68962400BA45AB /* RegisterTableViewController.swift */; };
 		2078EBEB1D68962400BA45AB /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBE91D68962400BA45AB /* RegisterTableViewController.swift */; };
 		2078EBEC1D68962400BA45AB /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBE91D68962400BA45AB /* RegisterTableViewController.swift */; };
+		2078EBEE1D68ACC500BA45AB /* ProfilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBED1D68ACC500BA45AB /* ProfilesTableViewController.swift */; };
+		2078EBEF1D68ACC500BA45AB /* ProfilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBED1D68ACC500BA45AB /* ProfilesTableViewController.swift */; };
+		2078EBF01D68ACC500BA45AB /* ProfilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBED1D68ACC500BA45AB /* ProfilesTableViewController.swift */; };
+		2078EBF21D68B32900BA45AB /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBF11D68B32900BA45AB /* ScheduleViewController.swift */; };
+		2078EBF31D68B32900BA45AB /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBF11D68B32900BA45AB /* ScheduleViewController.swift */; };
+		2078EBF41D68B32900BA45AB /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078EBF11D68B32900BA45AB /* ScheduleViewController.swift */; };
 		2092ED321D68811000A04DD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2092ED311D68811000A04DD9 /* AppDelegate.swift */; };
 		2092ED341D68811000A04DD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2092ED331D68811000A04DD9 /* ViewController.swift */; };
 		2092ED371D68811000A04DD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2092ED351D68811000A04DD9 /* Main.storyboard */; };
@@ -39,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		2078EBE91D68962400BA45AB /* RegisterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
+		2078EBED1D68ACC500BA45AB /* ProfilesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilesTableViewController.swift; sourceTree = "<group>"; };
+		2078EBF11D68B32900BA45AB /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		2092ED2E1D68811000A04DD9 /* iVaccine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVaccine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2092ED311D68811000A04DD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2092ED331D68811000A04DD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +114,9 @@
 				2092ED311D68811000A04DD9 /* AppDelegate.swift */,
 				2092ED331D68811000A04DD9 /* ViewController.swift */,
 				2092ED351D68811000A04DD9 /* Main.storyboard */,
+				2078EBF11D68B32900BA45AB /* ScheduleViewController.swift */,
 				2078EBE91D68962400BA45AB /* RegisterTableViewController.swift */,
+				2078EBED1D68ACC500BA45AB /* ProfilesTableViewController.swift */,
 				2092ED3B1D68811000A04DD9 /* Assets.xcassets */,
 				2092ED3D1D68811000A04DD9 /* LaunchScreen.storyboard */,
 				2092ED401D68811000A04DD9 /* Info.plist */,
@@ -266,7 +276,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2092ED3A1D68811000A04DD9 /* iVaccine.xcdatamodeld in Sources */,
+				2078EBEE1D68ACC500BA45AB /* ProfilesTableViewController.swift in Sources */,
 				2092ED341D68811000A04DD9 /* ViewController.swift in Sources */,
+				2078EBF21D68B32900BA45AB /* ScheduleViewController.swift in Sources */,
 				2092ED321D68811000A04DD9 /* AppDelegate.swift in Sources */,
 				2078EBEA1D68962400BA45AB /* RegisterTableViewController.swift in Sources */,
 			);
@@ -278,6 +290,8 @@
 			files = (
 				2092ED4A1D68811000A04DD9 /* iVaccineTests.swift in Sources */,
 				2078EBEB1D68962400BA45AB /* RegisterTableViewController.swift in Sources */,
+				2078EBEF1D68ACC500BA45AB /* ProfilesTableViewController.swift in Sources */,
+				2078EBF31D68B32900BA45AB /* ScheduleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +301,8 @@
 			files = (
 				2092ED551D68811000A04DD9 /* iVaccineUITests.swift in Sources */,
 				2078EBEC1D68962400BA45AB /* RegisterTableViewController.swift in Sources */,
+				2078EBF01D68ACC500BA45AB /* ProfilesTableViewController.swift in Sources */,
+				2078EBF41D68B32900BA45AB /* ScheduleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
