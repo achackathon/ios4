@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15F34" minimumToolsVersion="Automatic">
-    <entity name="Profile" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
+    <entity name="Profile" representedClassName=".Profile" syncable="YES">
         <attribute name="birthdate" attributeType="Date" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="sex" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="sex" attributeType="String" syncable="YES"/>
         <relationship name="vaccineRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VaccineRecord" inverseName="profile" inverseEntity="VaccineRecord" syncable="YES"/>
     </entity>
-    <entity name="RangeAge" syncable="YES">
-        <attribute name="ageFinal" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="ageInit" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="vaccines" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vaccine" inverseName="rangeAge" inverseEntity="Vaccine" syncable="YES"/>
+    <entity name="RangeAge" representedClassName=".RangeAge" syncable="YES">
+        <attribute name="ageFinal" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="ageInit" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="vaccines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vaccine" inverseName="rangeAge" inverseEntity="Vaccine" syncable="YES"/>
     </entity>
-    <entity name="Vaccine" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Vaccine" representedClassName=".Vaccine" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="vaccineDescription" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="rangeAge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RangeAge" inverseName="vaccines" inverseEntity="RangeAge" syncable="YES"/>
+        <relationship name="rangeAge" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RangeAge" inverseName="vaccines" inverseEntity="RangeAge" syncable="YES"/>
         <relationship name="vaccineRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VaccineRecord" inverseName="vaccine" inverseEntity="VaccineRecord" syncable="YES"/>
     </entity>
-    <entity name="VaccineRecord" syncable="YES">
-        <attribute name="vaccineted" optional="YES" attributeType="Boolean" syncable="YES"/>
+    <entity name="VaccineRecord" representedClassName=".VaccineRecord" syncable="YES">
+        <attribute name="vaccineted" attributeType="Boolean" syncable="YES"/>
         <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="vaccineRecords" inverseEntity="Profile" syncable="YES"/>
         <relationship name="vaccine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vaccine" inverseName="vaccineRecords" inverseEntity="Vaccine" syncable="YES"/>
     </entity>
     <elements>
         <element name="Profile" positionX="-4023" positionY="-6973" width="128" height="103"/>
+        <element name="RangeAge" positionX="-3528" positionY="-6739" width="128" height="88"/>
         <element name="Vaccine" positionX="-3771" positionY="-6732" width="128" height="103"/>
         <element name="VaccineRecord" positionX="-4016" positionY="-6766" width="128" height="88"/>
-        <element name="RangeAge" positionX="-3528" positionY="-6739" width="128" height="88"/>
     </elements>
 </model>
