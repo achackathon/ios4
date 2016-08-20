@@ -38,10 +38,12 @@ final class DataModule {
 
         for vaccineJson in vaccines {
           guard let name = vaccineJson["name"] as? String else { continue }
+          guard let description = vaccineJson["description"] as? String else { continue }
           guard let ranges = vaccineJson["ranges"] as? [[String: NSObject]] else { continue }
 
           let vaccine = Vaccine.newVaccine(privateManagedObjectContext)
           vaccine.name = name
+          vaccine.vaccineDescription = description
 
           for rangeJson in ranges {
             guard let initialValue = rangeJson["init"] as? Int,

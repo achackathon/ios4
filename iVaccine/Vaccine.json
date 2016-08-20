@@ -1,225 +1,238 @@
 {
-	"vaccines": [
-		{
-			"name": "BCG",
-			"ranges": [
-				{
-					"init": 0,
-					"final": 0
-				}
-			]
-		},
-		{
-			"name": "Hepatite B",
-			"ranges": [
-				{
-					"init": 0,
-					"final": 0
-				},
-				{
-					"init": 120,
-					"final": 228
-				},
-				{
-					"init": 240,
-					"final": 708
-				},
-				{
-					"init": 720,
-					"final": 11988
-				}
-			]
-		},
-		{
-			"name": "Penta",
-			"ranges": [
-				{
-					"init": 2,
-					"final": 2
-				},
-				{
-					"init": 4,
-					"final": 4
-				},
-				{
-					"init": 6,
-					"final": 6
-				},
-				{
-					"init": 15,
-					"final": 15
-				},
-				{
-					"init": 48,
-					"final": 48
-				}
-			]
-		},
-		{
-			"name": "VIP/VOP ",
-			"ranges": [
-				{
-					"init": 2,
-					"final": 2
-				},
-				{
-					"init": 4,
-					"final": 4
-				},
-				{
-					"init": 6,
-					"final": 6
-				},
-				{
-					"init": 15,
-					"final": 15
-				},
-				{
-					"init": 48,
-					"final": 48
-				}
-			]
-		},
-		{
-			"name": "Pneumocócica 10V",
-			"ranges": [
-				{
-					"init": 2,
-					"final": 2
-				},
-				{
-					"init": 4,
-					"final": 4
-				},
-				{
-					"init": 6,
-					"final": 6
-				},
-				{
-					"init": 12,
-					"final": 12
-				}
-			]
-		},
-		{
-			"name": "Rotavírus Humano",
-			"ranges": [
-				{
-					"init": 2,
-					"final": 2
-				},
-				{
-					"init": 4,
-					"final": 4
-				}
-			]
-		},
-		{
-			"name": "Meningocócica C",
-			"ranges": [
-				{
-					"init": 3,
-					"final": 3
-				},
-				{
-					"init": 5,
-					"final": 5
-				},
-				{
-					"init": 15,
-					"final": 15
-				}
-			]
-		},
-		{
-			"name": "Febre Amarela",
-			"ranges": [
-				{
-					"init": 9,
-					"final": 9
-				},
-				{
-					"init": 48,
-					"final": 48
-				},
-				{
-					"init": 120,
-					"final": 228
-				},
-				{
-					"init": 240,
-					"final": 708
-				},
-				{
-					"init": 720,
-					"final": 11988
-				}
-			]
-		},
-		{
-			"name": "Hepatite A",
-			"ranges": [
-				{
-					"init": 12,
-					"final": 12
-				}
-			]
-		},
-		{
-			"name": "Tríplice Viral",
-			"range": [
-				{
-					"init": 12,
-					"final": 12
-				},
-				{
-					"init": 120,
-					"final": 228
-				},
-				{
-					"init": 240,
-					"final": 708
-				}
-			]
-		},
-		{
-			"name": "Tetra Viral",
-			"range": [
-				{
-					"init": 15,
-					"final": 15
-				}
-			]
-		},
-		{
-			"name": "HPV",
-			"range": [
-				{
-					"init": 108,
-					"final": 108
-				},
-				{
-					"init": 120,
-					"final": 228
-				}
-			]
-		},
-		{
-			"name": "Dupla Adulto",
-			"range": [
-				{
-					"init": 120,
-					"final": 228
-				},
-				{
-					"init": 240,
-					"final": 708
-				},
-				{
-					"init": 720,
-					"final": 11988
-				}
-			]
-		}
-	]
+  "vaccines": [
+               {
+               "name": "BCG",
+               "description": "Vacina contra Tuberculose produzida com bacilo Calmette e Guérin.",
+               "ranges": [
+                          {
+                          "init": 0,
+                          "final": 0
+                          }
+                          ]
+               },
+               {
+               "name": "Hepatite B",
+               "description": "Vacina de partículas de HbsAG produzidas por DNA recombinante, adsorvidas em hidróxido de alumínio.",
+               "ranges": [
+                          {
+                          "init": 0,
+                          "final": 0
+                          },
+                          {
+                          "init": 120,
+                          "final": 228
+                          },
+                          {
+                          "init": 240,
+                          "final": 708
+                          },
+                          {
+                          "init": 720,
+                          "final": 11988
+                          }
+                          ]
+               },
+               {
+               "name": "Penta",
+               "description": "Com a vacina Pentavalente, a criança será imunizada contras as seguintes doenças: Difteria, Tétano, Coqueluche, Meningite e outras infecções causadas pelo Haemophilus influenzae tipo b e a Hepatite B.",
+               "ranges": [
+                          {
+                          "init": 2,
+                          "final": 2
+                          },
+                          {
+                          "init": 4,
+                          "final": 4
+                          },
+                          {
+                          "init": 6,
+                          "final": 6
+                          },
+                          {
+                          "init": 15,
+                          "final": 15
+                          },
+                          {
+                          "init": 48,
+                          "final": 48
+                          }
+                          ]
+               },
+               {
+               "name": "VIP/VOP ",
+               "description": "VIP é uma vacina de vírus inativo, composta pelos 3 tipos da poliomielite. VOP é uma vacina de vírus vivos atenuados. Ambas serve para combater a poliomielite",
+               "ranges": [
+                          {
+                          "init": 2,
+                          "final": 2
+                          },
+                          {
+                          "init": 4,
+                          "final": 4
+                          },
+                          {
+                          "init": 6,
+                          "final": 6
+                          },
+                          {
+                          "init": 15,
+                          "final": 15
+                          },
+                          {
+                          "init": 48,
+                          "final": 48
+                          }
+                          ]
+               },
+               {
+               "name": "Pneumocócica 10V",
+               "description": "A vacina pneumocócica conjugada 10-valente, previne cerca de 70% das doenças graves (pneumonia, meningite, otite).",
+               "ranges": [
+                          {
+                          "init": 2,
+                          "final": 2
+                          },
+                          {
+                          "init": 4,
+                          "final": 4
+                          },
+                          {
+                          "init": 6,
+                          "final": 6
+                          },
+                          {
+                          "init": 12,
+                          "final": 12
+                          }
+                          ]
+               },
+               {
+               "name": "Rotavírus Humano",
+               "description": "Esta é uma vacina constituída por vírus vivos atenuados, que protege contra as gastroenterites causadas pelo rotavírus. Sua aplicação é via oral, em duas doses.",
+               "ranges": [
+                          {
+                          "init": 2,
+                          "final": 2
+                          },
+                          {
+                          "init": 4,
+                          "final": 4
+                          }
+                          ]
+               },
+               {
+               "name": "Meningocócica C",
+               "description": "Trata-se de vacina inativada, portanto, não tem como causar a doença. Privine doenças causadas pelo meningococo C (incluindo meningite e meningococcemia).",
+               "ranges": [
+                          {
+                          "init": 3,
+                          "final": 3
+                          },
+                          {
+                          "init": 5,
+                          "final": 5
+                          },
+                          {
+                          "init": 15,
+                          "final": 15
+                          }
+                          ]
+               },
+               {
+               "name": "Febre Amarela",
+               "description": "Confere proteção em aproximadamente 100% dos vacinados acima de 9 meses de idade. Elá contem um vírus vivo atenuado, cepa 17 D",
+               "ranges": [
+                          {
+                          "init": 9,
+                          "final": 9
+                          },
+                          {
+                          "init": 48,
+                          "final": 48
+                          },
+                          {
+                          "init": 120,
+                          "final": 228
+                          },
+                          {
+                          "init": 240,
+                          "final": 708
+                          },
+                          {
+                          "init": 720,
+                          "final": 11988
+                          }
+                          ]
+               },
+               {
+               "name": "Hepatite A",
+               "description": "Vacina de vírus inativado com formaldeído. O antígeno viral purificado provem de culturas de fibroblasto humano infectado pelo vírus da Hepatite A",
+               "ranges": [
+                          {
+                          "init": 12,
+                          "final": 12
+                          }
+                          ]
+               },
+               {
+               "name": "Tríplice Viral",
+               "description": "Vacina combinada de vírus vivos atenuados contra sarampo, caxumba e rubéola.",
+               "range": [
+                         {
+                         "init": 12,
+                         "final": 12
+                         },
+                         {
+                         "init": 120,
+                         "final": 228
+                         },
+                         {
+                         "init": 240,
+                         "final": 708
+                         }
+                         ]
+               },
+               {
+               "name": "Tetra Viral",
+               "description": "Proteção contra rubéola, caxumba, sarampo, varicela e suas complicações.",
+               "range": [
+                         {
+                         "init": 15,
+                         "final": 15
+                         }
+                         ]
+               },
+               {
+               "name": "HPV",
+               "description": "A vacina contra o HPV previne a transmissão do vírus causador do câncer do colo do útero, contraído por relações sexuais, contato direto com peles ou mucosas infectadas e no momento do parto.",
+               "range": [
+                         {
+                         "init": 108,
+                         "final": 108
+                         },
+                         {
+                         "init": 120,
+                         "final": 228
+                         }
+                         ]
+               },
+               {
+               "name": "Dupla Adulto",
+               "description": "A vacina do tipo adulto (dT) compõe-se de dois a quatro UI de toxoide diftérico e dez a 20 UI de toxoide tetânico. Já a dupla tipo adulto (dT) contém menor quantidade de toxoide diftérico.",
+               "range": [
+                         {
+                         "init": 120,
+                         "final": 228
+                         },
+                         {
+                         "init": 240,
+                         "final": 708
+                         },
+                         {
+                         "init": 720,
+                         "final": 11988
+                         }
+                         ]
+               }
+               ]
 }
