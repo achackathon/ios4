@@ -12,7 +12,7 @@ import UIKit
 class ScheduleViewController : UIViewController {
     
     override func viewDidLoad() {
-        
+        self.navigationItem.setHidesBackButton(true, animated:true)
     }
     
     @IBAction func showProfiles(sender: UIBarButtonItem) {

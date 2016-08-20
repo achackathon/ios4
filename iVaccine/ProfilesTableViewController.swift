@@ -11,15 +11,33 @@ import UIKit
 
 class Profile : NSObject {
     
+    var name : String = ""
+    var age : String = ""
+    
+    func initWith(name : String, age: String) {
+        self.name = name
+        self.age = age
+    }
+    
+    
 }
 
 class ProfilesTableViewController : UITableViewController {
     
+    
+  
+
+    
     let listOfProfiles : [Profile] = []
         
     override func viewDidLoad() {
+        self.navigationItem.setHidesBackButton(true, animated:true)
+        let profile = Profile().initWith("Nome 1", age: "20")
         
+    }
+    @IBAction func create(sender: UIBarButtonItem) {
         
+        performSegueWithIdentifier("SegueRegister", sender: nil)
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -42,6 +60,41 @@ class ProfilesTableViewController : UITableViewController {
         return cell;
     }
 
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
+    
+//    override func table
+//    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Destructive, title: "👋" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            
+            print("Delete")
+        })
+        
+       
+
+        
+        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "☝️" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            
+            print("Edit")
+        })
+        
+        deleteAction.backgroundColor = UIColor.whiteColor()
+        editAction.backgroundColor = UIColor.whiteColor()
+        //NSDictionary *systemAttributes = @{ NSFontAttributeName: [UIFont systemFontOfSize:18] };
+
+       // self.titleLabel?.font = .systemFontOfSize(45)
+
+
+        return [deleteAction,editAction]
+    }
 
 }
 
