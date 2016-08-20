@@ -9,18 +9,6 @@
 import Foundation
 import UIKit
 
-class Profile : NSObject {
-    
-    var name : String = ""
-    var age : String = ""
-    
-    func initWith(name : String, age: String) {
-        self.name = name
-        self.age = age
-    }
-    
-    
-}
 
 class ProfilesTableViewController : UITableViewController {
     

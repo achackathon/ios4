@@ -9,14 +9,29 @@
 import Foundation
 import UIKit
 
+
+enum SexCategory : String {
+    case Male = "male", Female = "female", NotDefined = "notDefined"
+}
+
 class RegisterTableViewController : UITableViewController {
     
-     
+     let maleEmojiRespresention : String = "👱"
+     let femaleEmojiRespresention : String = "👩"
+     let notDefinedEmojiRespresention: String = "👻"
+
+
+
+    
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var birthdate: UITextField!
     @IBOutlet weak var male: SexButton!
     @IBOutlet weak var female: SexButton!
     @IBOutlet weak var notDefined: SexButton!
+    
+    let dataModule = DataModule.sharedInstance
+    var birthday = NSDate()
+    var sex = SexCategory.NotDefined
     
     var isFormEditing : Bool = false
     
@@ -27,6 +42,10 @@ class RegisterTableViewController : UITableViewController {
         
         navigationController?.title = "Register"
         
+        male.title = maleEmojiRespresention
+        female.title = femaleEmojiRespresention
+        notDefined.title = notDefinedEmojiRespresention
+        
         let datePickerView  : UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = UIDatePickerMode.Date
         birthdate.inputView = datePickerView
@@ -35,6 +54,7 @@ class RegisterTableViewController : UITableViewController {
     }
     
     func handleDatePicker(sender: UIDatePicker) {
+        birthday = sender.date
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         birthdate.text = dateFormatter.stringFromDate(sender.date)
@@ -48,6 +68,13 @@ class RegisterTableViewController : UITableViewController {
         male.backgroundColor = UIColor.grayColor()
         female.backgroundColor = UIColor.grayColor()
         notDefined.backgroundColor = UIColor.grayColor()
+
+        //not good at all
+        switch (sender.titleLabel!.text)! {
+            case maleEmojiRespresention : sex = .Male
+            case femaleEmojiRespresention : sex = .Female
+            default: sex = .NotDefined
+        }
         
         sender.backgroundColor = UIColor.redColor()
         
@@ -57,12 +84,21 @@ class RegisterTableViewController : UITableViewController {
         
         print("Save " + name.text!)
         
+        let newProfile = Profile.newProfile(dataModule.managedObjectContext)
+        
+        newProfile.name = name.text!
+        newProfile.birthdate = birthday
+        newProfile.sex = sex.rawValue
+        
+        
         //set profile
         performSegueWithIdentifier("SegueSchedule", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SegueSchedule" {
+            
+            
             
         }
     }
@@ -73,6 +109,12 @@ class RegisterTableViewController : UITableViewController {
 
 
 public class SexButton: UIButton {
+    
+    var title : String = "" {
+        didSet {
+            setTitle(title, forState: .Normal)
+        }
+    }
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         sharedInitialization()
@@ -81,7 +123,7 @@ public class SexButton: UIButton {
         layer.cornerRadius = frame.width/2
         backgroundColor = UIColor.grayColor()
         self.titleLabel?.font = .systemFontOfSize(45)
-        setTitle("💩", forState: .Normal)
+        //setTitle("💩", forState: .Normal)
     }
 }
 
