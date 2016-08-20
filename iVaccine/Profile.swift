@@ -32,7 +32,7 @@ class Profile: NSManagedObject {
       let vaccineRecord = VaccineRecord.newVaccineRecord(self.managedObjectContext!)
       vaccineRecord.profile = self
       vaccineRecord.vaccineted = false
-      vaccineRecord.addVaccineObject(vaccine)
+      vaccineRecord.vaccine = vaccine
 
       vaccineRecord.save()
     }

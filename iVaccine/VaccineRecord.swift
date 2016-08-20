@@ -15,16 +15,6 @@ class VaccineRecord: NSManagedObject {
     return NSEntityDescription.insertNewObjectForEntityForName("VaccineRecord", inManagedObjectContext: managedObjectContext) as! VaccineRecord
   }
 
-  func addVaccineObject(value: Vaccine) {
-    let items = self.mutableSetValueForKey("vaccine");
-    items.addObject(value)
-  }
-
-  func removeVaccineObject(value: Vaccine) {
-    let items = self.mutableSetValueForKey("vaccine");
-    items.removeObject(value)
-  }
-
   func save() {
     do {
       try self.managedObjectContext?.save()
