@@ -19,6 +19,8 @@ class RegisterTableViewController : UITableViewController {
      let maleEmojiRespresention : String = "👱"
      let femaleEmojiRespresention : String = "👩"
      let notDefinedEmojiRespresention: String = "👻"
+    
+    var flagEdit : Bool = false
 
 
 
@@ -30,12 +32,26 @@ class RegisterTableViewController : UITableViewController {
     @IBOutlet weak var notDefined: SexButton!
     
     let dataModule = DataModule.sharedInstance
+    
     var birthday = NSDate()
     var sex = SexCategory.NotDefined
     
     var isFormEditing : Bool = false
     
     override func viewDidLoad() {
+        
+        if flagEdit == false {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            
+            if let firstTime = defaults.valueForKey("FirstTime") {
+                performSegueWithIdentifier("SegueShowProfiles", sender: nil)
+            }else {
+                defaults.setBool(true, forKey: "FirstTime")
+                
+            }
+
+        }
+        
         
         name.delegate = self
         birthdate.delegate = self
@@ -89,7 +105,7 @@ class RegisterTableViewController : UITableViewController {
     @IBAction func goNext(sender: UIBarButtonItem) {
         
         print("Save " + name.text!)
-        
+
         let newProfile = Profile.newProfile(dataModule.managedObjectContext)
         
         newProfile.name = name.text!
@@ -100,6 +116,8 @@ class RegisterTableViewController : UITableViewController {
         newProfile.save()
         
         newProfile.loadVaccines()
+        
+        dataModule.save()
         
         
         //set profile

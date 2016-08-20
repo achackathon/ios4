@@ -8,9 +8,13 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 
 class Profile: NSManagedObject {
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
   class func newProfile(managedObjectContext: NSManagedObjectContext) -> Profile {
     return NSEntityDescription.insertNewObjectForEntityForName("Profile", inManagedObjectContext: managedObjectContext) as! Profile
   }
@@ -32,7 +36,7 @@ class Profile: NSManagedObject {
       let vaccineRecord = VaccineRecord.newVaccineRecord(self.managedObjectContext!)
       vaccineRecord.profile = self
       vaccineRecord.vaccineted = false
-      vaccineRecord.addVaccineObject(vaccine)
+      vaccineRecord.vaccine = vaccine
 
       vaccineRecord.save()
     }
@@ -40,7 +44,7 @@ class Profile: NSManagedObject {
 
   func save() {
     do {
-      try self.managedObjectContext?.save()
+      try self.appDelegate.saveContext()
     } catch {
       print("Não foi possível salvar a vacina \(self.name).")
     }

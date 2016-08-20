@@ -12,11 +12,25 @@ import UIKit
 
 class ProfilesTableViewController : UITableViewController {
     
-    let listOfProfiles : [Profile] = []
-        
+    var listOfProfiles  = [Profile]()
+
     override func viewDidLoad() {
-        self.navigationItem.setHidesBackButton(true, animated:true)
+        super.viewDidLoad()
         
+        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil)
+        navigationItem.leftBarButtonItem = backButton
+
+        
+        title = "Profiles"
+        listOfProfiles = DataModule.sharedInstance.getProfiles(nil)
+        tableView.reloadData()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.navigationItem.setHidesBackButton(true, animated:true)
+
     }
     @IBAction func create(sender: UIBarButtonItem) {
         
@@ -27,18 +41,26 @@ class ProfilesTableViewController : UITableViewController {
         //        let userSelected =  listOfUsers[indexPath.row]
         //
         //        delegate?.selectedUser(userSelected)
+        
+        let profile = listOfProfiles[indexPath.row]
+        performSegueWithIdentifier("SegueVaccines", sender: profile)
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3//listOfProfiles.count
+        return listOfProfiles.count
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell : ProfileTableViewCell = tableView.dequeueReusableCellWithIdentifier("ProfileTableViewCell") as! ProfileTableViewCell
-        //let profile = listOfProfiles[indexPath.row]
-        //cell.lableName.text = user.name
-        cell.name.text = "Nome de Alguem"
-        cell.age.text = "22 anos"
+        let profile = listOfProfiles[indexPath.row]
+        cell.name.text = profile.name
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+       cell.age.text = dateFormatter.stringFromDate(profile.birthdate)
+        
+        
+        cell.selectionStyle = .None
         
         return cell;
     }
@@ -56,7 +78,7 @@ class ProfilesTableViewController : UITableViewController {
 //    override func table
 //    
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Destructive, title: "✂️" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Destructive, title: "🚮" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             
             print("Delete")
         })
@@ -86,7 +108,20 @@ class ProfilesTableViewController : UITableViewController {
 
         return [deleteAction,editAction]
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SegueVaccines" {
+            let scheduleViewController = segue.destinationViewController as! ScheduleViewController
+            scheduleViewController.profile = sender as! Profile
+        }
+        //        performSegueWithIdentifier("SegueRegister", sender: nil)
 
+        if segue.identifier == "SegueRegister" {
+            let registerViewController = segue.destinationViewController as! RegisterTableViewController
+            registerViewController.flagEdit = true
+        }
+    }
+  
 }
 
 class ProfileTableViewCell : UITableViewCell {

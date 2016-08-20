@@ -12,11 +12,16 @@ import UIKit
 class ScheduleViewController : UITableViewController {
     
     var profile : Profile!
-        
     var list  = [VaccinesPerAgeRange]()
+    var dataModule = DataModule.sharedInstance
+    
+    let strongColor = UIColor(red: 0.5, green: 0.7, blue: 0.9, alpha: 1.0)
+
     
     override func viewDidLoad() {
         self.navigationItem.setHidesBackButton(true, animated:true)
+        title = profile.name
+        
         list = DataModule.sharedInstance.getVaccinePerAgeRange(profile)
         tableView.reloadData()
         
@@ -28,13 +33,13 @@ class ScheduleViewController : UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        return 5//list.count
+        return list.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-       // let vaccinePerAgeRange = list[section]
+        let vaccinePerAgeRange = list[section]
         
-        return 5//vaccinePerAgeRange.vaccines.count
+        return vaccinePerAgeRange.vaccines.count
         
     }
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -48,11 +53,12 @@ class ScheduleViewController : UITableViewController {
         titleHeader.font = .systemFontOfSize(25)
         titleHeader.textColor = UIColor.whiteColor()
 
-        //let vaccinePerAgeRange = list[section]
+        let vaccinePerAgeRange = list[section]
 
-        titleHeader.text = "1 a 2 anos"//vaccinePerAgeRange.description
+
+        titleHeader.text = vaccinePerAgeRange.description
         titleHeader.backgroundColor = UIColor.clearColor()
-        viewHeader.backgroundColor = UIColor.grayColor()
+        viewHeader.backgroundColor =  strongColor//UIColor.grayColor()
         
         viewHeader.addSubview(titleHeader)
         
@@ -62,7 +68,16 @@ class ScheduleViewController : UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell : VaccineTableViewCell = tableView.dequeueReusableCellWithIdentifier("VaccineTableViewCell") as! VaccineTableViewCell
-        cell.selectedIcon.alpha = 0.5
+        
+        let vaccinePerAgeRange = list[indexPath.section]
+        let vaccine = vaccinePerAgeRange.vaccines[indexPath.row]
+        
+        cell.descriptionVaccine.text = vaccine.vaccine!.name
+        if vaccine.vaccineted {
+        cell.selectedIcon.alpha = 1.0
+        } else {
+            cell.selectedIcon.alpha = 0.5
+        }
         cell.selectionStyle = .None
         
         return cell
@@ -77,6 +92,11 @@ class ScheduleViewController : UITableViewController {
         cell.showSelected()
         
         
+        let vaccinePerAgeRange = list[indexPath.section]
+        let vaccine = vaccinePerAgeRange.vaccines[indexPath.row]
+        
+        vaccine.vaccineted = !vaccine.vaccineted
+        dataModule.save()
     }
 
     

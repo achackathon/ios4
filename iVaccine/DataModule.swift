@@ -195,7 +195,7 @@ extension DataModule {
           if let ranges = vaccine.rangeAge {
             for vaccineRange in ranges {
               if vaccineRange as! RangeAge == range {
-                vaccinesPerAgeRange.vaccines.append(vaccine)
+                vaccinesPerAgeRange.adVaccine(vaccine)
               }
             }
           }
@@ -227,10 +227,13 @@ extension DataModule {
     default: return "Outros"
     }
   }
-
 }
 
 struct VaccinesPerAgeRange {
-    var description: String
-    var vaccines: [Vaccine]
+  var description: String
+  var vaccines: [Vaccine]
+
+  mutating func adVaccine(vaccine: Vaccine) {
+    vaccines.append(vaccine)
+  }
 }
