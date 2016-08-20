@@ -188,14 +188,22 @@ extension DataModule {
     let vaccineRecords = getVaccineRecord(profile, vaccineted: nil)
 
     for range in ranges {
-      var vaccinesPerAgeRange = VaccinesPerAgeRange(description: getRangeDescription(range), vaccines: [Vaccine]())
+      if existRange(vaccinesPerAgeRanges, range: getRangeDescription(range)) {
+        continue
+      }
+
+      var vaccinesPerAgeRange = VaccinesPerAgeRange(description: getRangeDescription(range), vaccines: [VaccineRecord]())
 
       for vaccineRecord in vaccineRecords {
         if let vaccine = vaccineRecord.vaccine {
           if let ranges = vaccine.rangeAge {
             for vaccineRange in ranges {
               if vaccineRange as! RangeAge == range {
-                vaccinesPerAgeRange.adVaccine(vaccine)
+                if let _ = vaccinesPerAgeRange.vaccines.indexOf(vaccineRecord) {
+                  continue
+                }
+                print("range: \(getRangeDescription(range)). vaccine: \(vaccine.name)")
+                vaccinesPerAgeRange.adVaccine(vaccineRecord)
               }
             }
           }
@@ -203,9 +211,20 @@ extension DataModule {
       }
 
       vaccinesPerAgeRanges.append(vaccinesPerAgeRange)
+      print("")
     }
 
     return vaccinesPerAgeRanges
+  }
+
+  func existRange(vaccinesPerAgeRanges: [VaccinesPerAgeRange], range: String) -> Bool {
+    for x in vaccinesPerAgeRanges {
+      if x.description == range {
+        return true
+      }
+    }
+
+    return false
   }
 
   private func getRangeDescription(rangeAge: RangeAge) -> String {
@@ -227,13 +246,18 @@ extension DataModule {
     default: return "Outros"
     }
   }
+
+  func save() {
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    appDelegate.saveContext()
+  }
 }
 
 struct VaccinesPerAgeRange {
   var description: String
-  var vaccines: [Vaccine]
+  var vaccines: [VaccineRecord]
 
-  mutating func adVaccine(vaccine: Vaccine) {
+  mutating func adVaccine(vaccine: VaccineRecord) {
     vaccines.append(vaccine)
   }
 }
