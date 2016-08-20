@@ -192,18 +192,18 @@ extension DataModule {
         continue
       }
 
-      var vaccinesPerAgeRange = VaccinesPerAgeRange(description: getRangeDescription(range), vaccines: [Vaccine]())
+      var vaccinesPerAgeRange = VaccinesPerAgeRange(description: getRangeDescription(range), vaccines: [VaccineRecord]())
 
       for vaccineRecord in vaccineRecords {
         if let vaccine = vaccineRecord.vaccine {
           if let ranges = vaccine.rangeAge {
             for vaccineRange in ranges {
               if vaccineRange as! RangeAge == range {
-                if let _ = vaccinesPerAgeRange.vaccines.indexOf(vaccine) {
+                if let _ = vaccinesPerAgeRange.vaccines.indexOf(vaccineRecord) {
                   continue
                 }
                 print("range: \(getRangeDescription(range)). vaccine: \(vaccine.name)")
-                vaccinesPerAgeRange.adVaccine(vaccine)
+                vaccinesPerAgeRange.adVaccine(vaccineRecord)
               }
             }
           }
@@ -246,13 +246,18 @@ extension DataModule {
     default: return "Outros"
     }
   }
+
+  func save() {
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    appDelegate.saveContext()
+  }
 }
 
 struct VaccinesPerAgeRange {
   var description: String
-  var vaccines: [Vaccine]
+  var vaccines: [VaccineRecord]
 
-  mutating func adVaccine(vaccine: Vaccine) {
+  mutating func adVaccine(vaccine: VaccineRecord) {
     vaccines.append(vaccine)
   }
 }
