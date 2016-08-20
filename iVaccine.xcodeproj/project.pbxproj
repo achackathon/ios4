@@ -24,6 +24,7 @@
 		CB5666131D68963B005A5FE2 /* RangeAge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56660B1D68963B005A5FE2 /* RangeAge.swift */; };
 		CB5666141D68963B005A5FE2 /* VaccineRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56660C1D68963B005A5FE2 /* VaccineRecord+CoreDataProperties.swift */; };
 		CB5666151D68963B005A5FE2 /* VaccineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB56660D1D68963B005A5FE2 /* VaccineRecord.swift */; };
+		CB56661C1D689AAD005A5FE2 /* Vaccine.json in Resources */ = {isa = PBXBuildFile; fileRef = CB56661B1D689AAD005A5FE2 /* Vaccine.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		CB56660B1D68963B005A5FE2 /* RangeAge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeAge.swift; sourceTree = "<group>"; };
 		CB56660C1D68963B005A5FE2 /* VaccineRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VaccineRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CB56660D1D68963B005A5FE2 /* VaccineRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccineRecord.swift; sourceTree = "<group>"; };
+		CB56661B1D689AAD005A5FE2 /* Vaccine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Vaccine.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		2092ED301D68811000A04DD9 /* iVaccine */ = {
 			isa = PBXGroup;
 			children = (
+				CB5666181D689875005A5FE2 /* Data */,
 				CB5666171D68964F005A5FE2 /* Model */,
 				CB5666161D689647005A5FE2 /* Core Data */,
 				2092ED311D68811000A04DD9 /* AppDelegate.swift */,
@@ -169,6 +172,14 @@
 				CB5666041D6895C4005A5FE2 /* DataModule.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		CB5666181D689875005A5FE2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CB56661B1D689AAD005A5FE2 /* Vaccine.json */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2092ED3F1D68811000A04DD9 /* LaunchScreen.storyboard in Resources */,
+				CB56661C1D689AAD005A5FE2 /* Vaccine.json in Resources */,
 				2092ED3C1D68811000A04DD9 /* Assets.xcassets in Resources */,
 				2092ED371D68811000A04DD9 /* Main.storyboard in Resources */,
 			);

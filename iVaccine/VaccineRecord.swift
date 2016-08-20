@@ -11,7 +11,17 @@ import CoreData
 
 
 class VaccineRecord: NSManagedObject {
+  class func newVaccineRecord(managedObjectContext: NSManagedObjectContext) -> VaccineRecord {
+    return NSEntityDescription.insertNewObjectForEntityForName("VaccineRecord", inManagedObjectContext: managedObjectContext) as! VaccineRecord
+  }
 
-// Insert code here to add functionality to your managed object subclass
+  func addVaccineObject(value: Vaccine) {
+    let items = self.mutableSetValueForKey("vaccine");
+    items.addObject(value)
+  }
 
+  func removeVaccineObject(value: Vaccine) {
+    let items = self.mutableSetValueForKey("vaccine");
+    items.removeObject(value)
+  }
 }

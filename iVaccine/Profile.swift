@@ -11,7 +11,17 @@ import CoreData
 
 
 class Profile: NSManagedObject {
+  class func newProfile(managedObjectContext: NSManagedObjectContext) -> Profile {
+    return NSEntityDescription.insertNewObjectForEntityForName("Profile", inManagedObjectContext: managedObjectContext) as! Profile
+  }
 
-// Insert code here to add functionality to your managed object subclass
+  func addVaccineRecordObject(value: VaccineRecord) {
+    let items = self.mutableSetValueForKey("vaccineRecords");
+    items.addObject(value)
+  }
 
+  func removeVaccineRecordObject(value: VaccineRecord) {
+    let items = self.mutableSetValueForKey("vaccineRecords");
+    items.removeObject(value)
+  }
 }
