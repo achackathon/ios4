@@ -16,4 +16,7 @@ extension VaccineRecord {
   @NSManaged var vaccineted: Bool
   @NSManaged var profile: Profile?
   @NSManaged var vaccine: Vaccine?
+
+  //@NSManaged func addVaccineObject(value: Vaccine)
+  //@NSManaged func removeVaccineObject(value: Vaccine)
 }
